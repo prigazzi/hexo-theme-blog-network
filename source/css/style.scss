@@ -1,0 +1,130 @@
+@import "variables";
+@import "customvariables";
+@import "utilities";
+@import "typography";
+@import "archive";
+@import "highlight/highlight";
+
+body {
+  background: $background;
+  color: #555;
+  font-family: 'Open Sans', sans-serif;
+}
+
+article {
+  padding-bottom: 3em;
+
+  h1 {
+    color: $primario !important;
+    font-weight: normal;
+  }
+
+  h3 {
+    font-weight: normal;
+    margin-top: 0;
+
+    a {
+      color: $primario !important;
+    }
+    a:hover {
+      border-bottom: 1px dashed #dedede;
+      text-decoration: none;
+    }
+  }
+
+  footer {
+    padding-top: 2em; 
+
+    a, a:focus, a:visited {
+      color: $primario !important;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      background: rgba($primario, 0.08);
+      border-bottom: 1px solid lighten($primario, 30%);
+      text-decoration: none;
+    }
+
+    .readmore {
+      display: inline-block;
+      vertical-align: top;
+      width: 49%;
+
+      .next, .previous {
+        display: block;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal !important;
+}
+
+#main {
+  background: white;
+  border-radius: 6px;
+  border: 6px solid $border;
+  margin-top: 60px;
+  padding: 15px;
+}
+
+#mainFooter {
+  background: $footerBackground;
+  border-top: 1px solid #dcdcdc;
+  color: $footerColor;
+  font-size: 0.8em;
+  margin-top: 20px;
+
+  h3 {
+    font-family : 'Oleo Script', cursive;
+  }
+
+  .logo, .logo span {
+    color: $primario;
+  }
+
+  .nav-pills {
+    display: inline-block;
+    font-family: 'Oleo Script', cursive;
+    font-size: 1.6em;
+    margin: 16px;
+
+    a, a:hover {
+      color: $primario;
+    }
+
+    .active a, .active a:hover {
+      color: white;
+      background-color: $primario;
+    }
+  }
+}
+
+#networks {
+  display: inline-block;
+}
+
+.brand {
+    font-size: 2.2em !important;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.logo, .brand.logo {
+  font-family: 'Oleo Script', cursive;
+  color: $logoSecundario;
+  span:first-child {
+    color: $logoPrimario;
+  }
+}
+
+.meta {
+  font-size: 0.8em;
+  display: inline;
+}

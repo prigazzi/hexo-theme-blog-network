@@ -1,0 +1,23 @@
+if theme.sharing != false
+  h4 ¿Este artículo te pareció interesante?
+  p Entonces puedes recomendárselo a tus amigos o colegas.
+  div.sharing
+    if theme.twitter.showButton == true && theme.twitter.user
+      a.twitter-share-button(
+        href="http://twitter.com/share" 
+        data-url=page.permalink
+        data-via=theme.twitter.user
+        data-counturl=url_for(page.path)) Tweet
+    
+    if theme.googleplus.showButton
+      - var size = theme.googleplus.size || "medium"
+      div.g-plusone(data-size=size)
+    
+    if theme.facebook.showButton
+      div.fb-like(
+        data-href=page.permalink
+        data-send="false"
+        data-layout="button_count"
+        data-width="450"
+        data-show-faces="false"
+        data-action="recommend")

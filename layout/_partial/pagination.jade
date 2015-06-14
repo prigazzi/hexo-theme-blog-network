@@ -1,0 +1,12 @@
+if page.total > 1
+    ul.pager
+      li.previous(class=page.next == 0 ? "next": '')
+        if page.next == 0
+          span!= "&laquo; Anteriores"
+        else
+          != link_to(page.next_link, "&laquo; Anteriores")
+      li.next(class=page.prev == 0 ? "disabled":'')
+        if page.prev == 0
+          span!= "Nuevos &raquo;"
+        else 
+          != link_to(page.prev_link, "Nuevos &raquo;")

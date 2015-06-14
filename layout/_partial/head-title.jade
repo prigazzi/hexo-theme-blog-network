@@ -1,0 +1,13 @@
+if is_archive()
+  - title = 'Archivo';
+  if is_month()
+    - title += ': ' + page.year + '/' + page.month;
+  else if is_year()
+    - title += ': ' + page.year;
+else if is_category()
+  - title = 'Categoria: ' + page.category;
+else if is_tag()
+  - title = 'Tag: ' + page.tag;
+
+title
+  != (title? title + " | " : "")+config.title

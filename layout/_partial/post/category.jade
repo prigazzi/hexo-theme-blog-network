@@ -1,0 +1,4 @@
+if post.categories && post.categories.length
+    span.categories
+        - var params = {show_count: false, style: 'none', separator: ' / '}
+        != list_categories(post.categories, params)

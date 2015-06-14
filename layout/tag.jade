@@ -1,0 +1,4 @@
+article
+  header
+      h1.entry-title!= "Tag " + page.tag
+      != partial('_partial/archive', {pagination: config.tag, index: true})

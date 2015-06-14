@@ -1,0 +1,19 @@
+nav.navbar.navbar-fixed-top(role="navigation", class={"navbar-inverse": theme.navbar.inverse === true})
+    div.navbar-inner
+        div.container
+            a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              
+            a.brand.logo(href="/")
+              for word in theme.title
+                span!= word
+
+            div.nav-collapse.collapse
+                ul.nav.pull-left
+                    for url, name in theme.menu
+                        li: a(href=url_for(theme.menu[name]))= name
+                
+                // form.navbar-search.pull-right
+                    input.search-query.input-xlarge(type="text", placeholder="Search")

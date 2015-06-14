@@ -1,0 +1,59 @@
+section.container
+    div.row-fluid
+        div#hola.span6
+            h3 Hola! Esto es 
+                span.logo
+                    for word in theme.title
+                        span!= word
+            include ../_partial/footer/description
+
+            if theme.mailchimp
+                include ../_partial/footer/mailing
+
+        div#siguenos.span6
+            h3#networks.pull-left Sígueme en
+            ul.nav.nav-pills
+                if theme.twitter.user
+                    li.active: a(href="#twitter" data-toggle="tab") Twitter
+                if theme.facebook.footerLike
+                    li: a(href="#facebook" data-toggle="tab") Facebook
+                if theme.googleplus.widgetId
+                    li: a(href="#googleplus" data-toggle="tab") Google+
+            
+            div.tab-content(style="clear:both")
+                if theme.twitter.user 
+                    <!-- Twitter Tab -->
+                    div#twitter.tab-pane.active
+                        a.twitter-timeline(
+                            height="300" 
+                            data-dnt="true" 
+                            href="https://twitter.com/"+theme.twitter.user 
+                            data-widget-id=theme.twitter.widgetId
+                            data-chrome="nofooter transparent"
+                        )!= "Tweets por " + theme.twitter.user 
+                        script.
+                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                
+                if theme.facebook.footerLike
+                    <!-- Facebook Tab -->
+                    div#facebook.tab-pane
+                        iframe(
+                            src=theme.facebook.footerLike 
+                            scrolling="no" 
+                            frameborder="0" 
+                            style="border:none; overflow:hidden; width:450px; height:300px;" 
+                            allowTransparency="true"
+                        )
+                
+                if theme.googleplus.widgetId
+                    <!-- Google Plus Tab -->
+                    div#googleplus.tab-pane
+                        <!-- Place this tag where you want the badge to render. -->
+                        div.g-plus(data-href="//plus.google.com/"+theme.googleplus.widgetId, data-rel="publisher")
+                        <!-- Place this tag after the last badge tag. -->
+                        script.
+                          (function() {
+                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                            po.src = 'https://apis.google.com/js/plusone.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                          })();

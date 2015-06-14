@@ -1,0 +1,39 @@
+article(id=post.layout+"-"+post.slug, itemscope, itemprop="blogPost")
+  small.categories
+    != partial('post/category', {post: post, separator: " / "})
+
+  header
+    != partial('post/gallery')
+    if post.link || post.title
+      != partial('post/title')
+    
+    if !index
+      div.well.well-small
+        != partial('post/author')
+        |  | 
+        != partial('post/date', {date_format: "LL"})
+
+  div.entry-content.post(itemprop="articleBody")
+    if post.excerpt && index
+      !=post.excerpt
+      if theme.excerpt_link
+        p.article-more-link
+          a(href=url_for(post.path)+"#more")= theme.excerpt_link
+    else
+      !=post.content  
+
+  if index
+    footer.meta.well.well-small
+      != partial('post/date', {date_format: "LL"})
+      |  | 
+      a(data-url=post.permalink, data-id=post._id, class="article-share-link") Compartir
+      if post.comments && theme.disqus.user
+        |  | 
+        a(href=post.permalink+"#disqus_thread" class="article-comment-link") Comentarios
+      if theme.excerpt_link
+        |  | 
+        a(href=url_for(post.path)+"#more")= theme.excerpt_link
+        
+  if !index
+    != partial('post/tag')
+    != partial('post/footer')

@@ -1,0 +1,47 @@
+# Blog Title
+title:
+	- blog
+	- network
+
+#Header Menu
+menu:
+	Archives: /archives/
+	About: /about/
+
+rss: /atom.xml
+excerpt_link: Keep Reading →
+widgets: 
+	- recent-posts
+	- categories
+	- tags
+	- github
+favicon: /favicon.png
+navbar:
+	inverse: false
+
+# Miscellaneous
+sharing: true # Not used yet
+twitter:
+	user: 
+	showButton: true
+	widgetId: ""
+googleplus:
+	showButton: true
+	size: medium
+	widgetId: ""
+facebook:
+	showButton: true
+	footerLike: "" # Facebook Like Frame Url
+github: 
+	user: 
+	showLink: true
+	count: 3
+	skipForks: true # Should I hide the forks?
+google_analytics:
+	ua: UA-XXXXX-X
+	domain: domain.com
+disqus:
+	user: 
+mailchimp: ""
+fb_admins: # Needs to be moved to facebook:
+fb_app_id: # Needs to be moved to facebook:

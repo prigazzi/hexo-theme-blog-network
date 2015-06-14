@@ -1,0 +1,10 @@
+if post.author
+  - var author = post.author
+else if page.author
+  - var author = page.author
+else
+  - var author = site.author
+
+span.byline.author.vcard
+  | Por 
+  span.fn= author

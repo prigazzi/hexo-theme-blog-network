@@ -1,0 +1,42 @@
+meta(charset="utf-8")
+!= partial('_partial/head-title', {title: page.title})
+        
+if config.author
+    meta(name='author', content=config.author)
+
+if page.keywords
+    meta(name="keywords", content=page.keywords)
+
+<!-- http://t.co/dKP3o1e -->
+meta(name="HandheldFriendly", content="True")
+meta(name="MobileOptimized", content="320")
+meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+meta(name="viewport", content="width=device-width, initial-scale=1")
+
+<!-- Open Graph -->
+!= open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id})
+
+<!-- Canonical -->
+- var canonical = config.url
+if config.permalink.indexOf(".html") > -1
+    - canonical += page.path
+else 
+    - canonical += page.path.indexOf(config.category_dir) ? "/" : "";
+    - canonical += page.path.replace("index.html", "")
+link(rel="canonical", href=canonical)
+
+if theme.favicon
+    != favicon_tag(theme.favicon)
+<!-- Fonts -->
+link(href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700', rel='stylesheet', type='text/css')
+link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', rel='stylesheet', type='text/css')
+<!-- Bootstrap -->
+link(href=config.root+"css/bootstrap/bootstrap.css", media="screen, projection", rel="stylesheet", type="text/css")
+link(href=config.root+"css/bootstrap/responsive.css", media="screen, projection", rel="stylesheet", type="text/css")
+!= css("css/style.css")
+
+if theme.rss
+    != feed_tag(theme.rss)
+
+!= js(["js/jquery-2.0.1.min.js", "js/bootstrap.min.js", "js/main.js"])
+!= partial("_partial/google-analytics")

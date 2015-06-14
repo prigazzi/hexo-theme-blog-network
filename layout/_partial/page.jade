@@ -1,0 +1,11 @@
+article(role="article")
+  header
+    != partial('post/gallery')
+    if post.link || post.title
+      != partial('post/title')
+
+  div.entry-content(itemprop="articleBody")
+    !=post.content
+        
+  != partial('post/tag')
+  != partial('post/footer')

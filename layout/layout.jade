@@ -1,0 +1,23 @@
+doctype html
+block vars
+  - var bodyId = page.body_id ? page.body_id : null;
+html(lang='en')
+  head
+    include _partial/head
+  body(id=bodyId)
+    include ./includes/header
+    // include includes/navbar
+    section#wrapper.container
+      // != partial('_partial/header')
+      section#main.row
+        div.row-fluid
+          div#content.span8
+            block content
+              if body
+                != body
+          include ./includes/sidebar
+    footer#mainFooter
+      block footer
+        include ./includes/footer
+    include includes/scripts/disqus
+    block scripts

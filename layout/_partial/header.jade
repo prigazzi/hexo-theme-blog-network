@@ -1,0 +1,18 @@
+header#header
+  div#banner
+  div#header-outer.outer
+    div#header-title.inner
+      h1#logo-wrap
+        a#logo(href=url_for())= config.title
+      
+      if config.subtitle
+        h2#subtitle-wrap
+          a#subtitle(href=url_for())= config.subtitle
+     
+      nav#sub-nav
+        if theme.rss
+          a#nav-rss-link.nav-icon(href=theme.rss title="RSS Feed")
+        a#nav-search-btn.nav-icon(title="Search")
+      
+      div#search-form-wrap
+        != search_form({button: '&#xF002;'})

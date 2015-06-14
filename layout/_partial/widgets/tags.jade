@@ -1,0 +1,7 @@
+if site.tags.length
+  section#tags.well
+    h4 Tags
+    ul.nav.nav-pills.nav-stacked
+      - site.tags.sort('posts.length', -1).each(function(tag, i) {
+        li: a(href=url_for(tag.path))= tag.name+" ("+tag.posts.length+")"
+      - })

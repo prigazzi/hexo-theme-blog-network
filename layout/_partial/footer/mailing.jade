@@ -1,0 +1,23 @@
+h3 Recibe información por email
+p 
+    | Jamás enviaré Spam, solamente avisaré cuando hay nuevas publicaciones o avisos especiales.
+
+<!-- Begin MailChimp Signup Form -->
+div#mc_embed_signup
+    form#mc-embedded-subscribe-form.validate(
+        action=theme.mailchimp 
+        method="post" 
+        name="mc-embedded-subscribe-form"
+        target="_blank" 
+        novalidate
+    )
+        div.mc-field-group.input-append
+            input#mce-EMAIL.required.email.input-xlarge(type="email" value="" name="EMAIL")
+            input#mc-embedded-subscribe.button.btn(type="submit" value="Suscribete" name="subscribe")
+        
+        p Powered by 
+            a(href="http://eepurl.com/BmAjv" title="MailChimp - email marketing made easy and fun") MailChimp
+        div#mce-responses.clear
+            div.response(id="mce-error-response" style="display:none")
+            div.response(id="mce-success-response" style="display:none")
+<!--End mc_embed_signup-->

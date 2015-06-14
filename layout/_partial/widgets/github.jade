@@ -1,0 +1,29 @@
+if theme.github.user
+  section#github.well
+    h4 GitHub Repos
+    ul#gh_repos.nav.nav-pills.nav-stacked
+      li.loading Actualizando...
+    
+    if theme.github.showLink
+      | More 
+      a(href="https://github.com/"+theme.github.user)= theme.github.user
+      |  on GitHub
+    
+    script.
+      $(document).ready(function(){
+          if (!window.jXHR){
+              var jxhr = document.createElement('script');
+              jxhr.type = 'text/javascript';
+              jxhr.src = '#{url_for()}js/jXHR.js';
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(jxhr, s);
+          }
+
+          github.showRepos({
+              user: '#{theme.github.user}',
+              count: #{theme.github.count},
+              skip_forks: #{theme.github.skipForks},
+              target: '#gh_repos'
+          });
+      });
+    != js("/js/github.js")

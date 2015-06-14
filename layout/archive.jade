@@ -1,0 +1,4 @@
+article
+  header
+      h1.entry-title!= "Archivo " + (page.year? "del año "+page.year: "")
+  != partial('_partial/archive', {pagination: 1, index: true})

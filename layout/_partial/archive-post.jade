@@ -1,0 +1,15 @@
+article.archive-article(class="archive-type-"+post.layout)
+  time(datetime=date_xml(post.date), itemprop="datePublished")
+    span.month!= date(post.date, "MMM")
+    |  
+    span.day!= date(post.date, "DD")
+    |  
+    span.year!= date(post.date, "YYYY")
+    |  
+  != partial('post/title', {class_name: 'archive-article-title'})
+  if post.categories.length
+    - var params = {show_count: false, style: 'none', separator: ', '}
+    footer
+      span.categories!= " publicado en "+list_categories(post.categories, params)
+
+      

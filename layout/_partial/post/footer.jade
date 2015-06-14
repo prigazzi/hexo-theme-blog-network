@@ -1,0 +1,8 @@
+footer.well.well-small
+  != partial('sharing')
+  != partial('nav')
+
+if post.comments && theme.disqus.user
+  section
+    h2 Comentarios
+    div#disqus_thread(aria-live="polite")

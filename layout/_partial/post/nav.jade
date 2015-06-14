@@ -1,0 +1,15 @@
+if post.prev || post.next
+  h4 Lee a continuación...
+  p.readmore.text-left
+    if post.prev
+      - var title = post.prev.title?post.prev.title:"(Sin título)"
+        a.previous(href=url_for(post.prev.path) title="Anterior: "+title)!= "&laquo;"+title
+        | En 
+        != partial('category', {post: post.prev})
+
+  p.readmore.text-right
+    if post.next
+      - var title = post.next.title?post.next.title:"(Sin título)"
+        a.next(href=url_for(post.next.path) title="Siguiente: "+title)!= title+"&raquo;"
+        | En 
+        != partial('category', {post: post.next})

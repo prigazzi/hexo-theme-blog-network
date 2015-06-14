@@ -1,0 +1,7 @@
+if site.categories.length
+    section#categorias.well
+        h4 Categorias
+        ul.nav.nav-pills.nav-stacked
+            - site.categories.find({parent: {$exists: false}}).sort('posts.length', -1).each(function(cat, i) {
+                li: a(href=url_for(cat.path))= cat.name+" ("+cat.posts.length+")"
+            - })

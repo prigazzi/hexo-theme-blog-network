@@ -1,0 +1,66 @@
+$img-border: url('/images/dotted-border.png');
+$text-color: #222 !default;
+$link-color: lighten(#165b94, 3) !default;
+$link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25) !default;
+$text-color-light: #aaa !default;
+
+#blog-archives {
+  color: $text-color-light;
+
+  article {
+    padding: 1em 0 1em;
+    position: relative;
+    background: $img-border bottom left repeat-x;
+    &:last-child {
+      background: none;
+    }
+    footer { padding: 0; margin: 0;}
+  }
+  
+  h2 { display: none; }
+  
+  a, a.category, time {
+    color: $text-color-light;
+  }
+  
+  time {
+    font-size: .9em;
+    line-height: 1.2em;
+    .month, .day { display: inline-block; }
+    .month { text-transform: uppercase; }
+  }
+  
+  p { margin-bottom: 1em; }
+  
+  @media only screen and (min-width: 550px) {
+    article {
+      margin-bottom: 0px;
+      margin-left: 6em;
+      padding:{left: 4.5em; bottom: 10px !important;}
+
+      h3 {
+        display: inline;
+      }
+    }
+    footer {
+      display: inline;
+    }
+    h2 {
+      display: inline-block;
+      float: left;
+      font-weight: normal;
+      margin-top: 17px;
+      position: relative; 
+    }
+    time {
+      left: 0em;
+      position: absolute;
+      text-align: right;
+      top: 25px;
+    }
+    a.category {
+      line-height: 1.1em;
+    }
+    .year { display: none; }
+  }
+}
