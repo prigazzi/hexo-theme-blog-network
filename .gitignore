@@ -1,0 +1,8 @@
+# Main configuration file
+_config.yml
+
+# Custom CSS variables for color purposes
+source/css/_customvariables.scss
+
+# Blog particular description at the Footer.
+layout/_partial/description.jade
