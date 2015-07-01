@@ -1,9 +1,9 @@
 if post.author
   - var author = post.author
-else if page.author
-  - var author = page.author
+else if theme.author
+  - var author = theme.author
 else
-  - var author = site.author
+  - var author = config.author
 
 span.byline.author.vcard
   | Por 
