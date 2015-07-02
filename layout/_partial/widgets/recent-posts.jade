@@ -1,6 +1,6 @@
 section#recientes.well
     h4 Recientes...
     ul.nav.nav-pills.nav-stacked
-        - site.posts.limit(5).each(function(post) {
+        - site.posts.sort("-date").limit(5).each(function(post) {
             li: a(href=url_for(post.path))= post.title
         - })
